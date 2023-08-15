@@ -4,12 +4,16 @@ export default function MovieDisplay({movie}) {
 
     const loaded = () => {
     return (
-        <>
-        <h1>{movie.Title}</h1>
-        <h2>{movie.Genre}</h2>
-        <img src={movie.Poster} alt={movie.Title} />
-        <h2>{movie.Year}</h2>       
-        </>
+        <div className="mt-4">
+        <h1 className="text-light mb-4">{movie.Title}</h1>
+        <h2 className="text-info mb-4">{movie.Genre}</h2>
+        <img className="mb-4 border border-light border-3" src={movie.Poster} alt={movie.Title} />
+        <h2 className="text-primary mb-4">Year released: {movie.Year}</h2> 
+        <div className="border border-light w-50 mx-auto bg-secondary">    
+        <h3 className="text-light mb-4 mt-2">Plot:</h3>
+        <h5 className="text-light mb-4">{movie.Plot}</h5>     
+            </div> 
+        </div>
 
     )
     }

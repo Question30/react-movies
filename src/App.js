@@ -5,7 +5,7 @@ import Form from './components/Form';
 
 function App() {
 
-  const apiKey = "eafd57f8";
+  const apiKey = process.env.REACT_APP_MOVIE_API_KEY;
 
   const [movie, setMovie] = useState(null);
 
@@ -18,7 +18,7 @@ function App() {
       );
   
       const data = await response.json();
-  
+        console.log(data)
       setMovie(data);
 
     } catch(e){
@@ -27,13 +27,19 @@ function App() {
   }
 
   useEffect(() => {
-    getMovie("Clueless")
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    const randomCharacter = alphabet[Math.floor(Math.random() * alphabet.length)]
+    getMovie(randomCharacter);
   }, []);
 
   return (
     <div className="App">
+      <div className='bg-dark vh-100'>
+
         <Form moviesearch={getMovie} />
         <MovieDisplay movie={movie}/>
+      </div>
     </div>
   );
 }

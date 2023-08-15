@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 export default function Form (props) {
 
@@ -13,22 +13,25 @@ export default function Form (props) {
         })
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = () => {
         props.moviesearch(formData.searchterm);
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='input-group pt-4 w-50 mx-auto' >
+
+                <label className='input-group-text' for='inputgroup'>Movie Search</label>
                 <input 
+                className='form-control'
                     type ="text" 
                     name="searchterm"
                     onChange={handleChange}
                     value={formData.searchterm}
+                    placeholder='Search movie'
+                    id="inputgroup"
+                    required
                 />
-                <input type="submit" value="submit" />
-            </form>
+                <button className='btn btn-primary'  value="submit" onClick={handleSubmit}>Search</button>
         </div>
     )
 

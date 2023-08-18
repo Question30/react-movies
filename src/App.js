@@ -14,7 +14,7 @@ function App() {
     try {
 
       const response = await fetch(
-        `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`
+        `https://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`
       );
   
       const data = await response.json();
@@ -34,8 +34,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div className='bg-dark vh-100'>
+    <div className="App bg-dark vh-100">
+      <div className>
 
         <Form moviesearch={getMovie} />
         <MovieDisplay movie={movie}/>
